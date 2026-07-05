@@ -279,6 +279,7 @@ export default function ConsultationModal({ isOpen, onClose, preSelectedStyleId 
                               <img
                                 src={style.image}
                                 alt={style.name}
+                                loading="lazy"
                                 referrerPolicy="no-referrer"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
