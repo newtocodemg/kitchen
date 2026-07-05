@@ -1,0 +1,6 @@
+{
+  "name": "KitchenSpace Studio",
+  "description": "Premium, luxury modular kitchen designs designed around your lifestyle. Book a free 3D design consultation today.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
