@@ -18,46 +18,33 @@ export default function SafeImage({
   fallbackSrc,
   ...props
 }: SafeImageProps) {
-  const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
-  const [resolvedSrc, setResolvedSrc] = useState<string | undefined>(undefined);
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    if (!src) {
-      setStatus('error');
-      return;
+    setCurrentSrc(src);
+    setIsLoaded(false);
+    setIsError(false);
+  }, [src]);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+    setIsError(false);
+  };
+
+  const handleError = () => {
+    if (fallbackSrc && currentSrc !== fallbackSrc) {
+      setCurrentSrc(fallbackSrc);
+    } else {
+      setIsError(true);
     }
-
-    setStatus('loading');
-    setResolvedSrc(undefined);
-
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      setResolvedSrc(src);
-      setStatus('loaded');
-    };
-    img.onerror = () => {
-      // If primary failed, try fallbackSrc if provided
-      if (fallbackSrc && src !== fallbackSrc) {
-        const fallbackImg = new Image();
-        fallbackImg.src = fallbackSrc;
-        fallbackImg.onload = () => {
-          setResolvedSrc(fallbackSrc);
-          setStatus('loaded');
-        };
-        fallbackImg.onerror = () => {
-          setStatus('error');
-        };
-      } else {
-        setStatus('error');
-      }
-    };
-  }, [src, fallbackSrc]);
+  };
 
   return (
-    <div className={`relative overflow-hidden w-full h-full bg-stone-100 ${className}`}>
+    <div className={`relative overflow-hidden w-full h-full bg-[#FAFAF9] ${className}`}>
       {/* Loading Shimmer State */}
-      {status === 'loading' && (
+      {!isLoaded && !isError && (
         <div className="absolute inset-0 bg-[#F5F2EB] flex flex-col items-center justify-center p-6 text-center">
           <div className="absolute inset-0 animate-shimmer-light" />
           <div className="relative z-10 flex flex-col items-center space-y-3">
@@ -73,7 +60,7 @@ export default function SafeImage({
       )}
 
       {/* Beautiful Premium Skeleton Error Placeholder */}
-      {status === 'error' && (
+      {isError && (
         <div className="absolute inset-0 bg-gradient-to-br from-[#123328] to-[#1E4D3D] flex flex-col items-center justify-center p-6 text-center select-none">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent bg-[length:200%_100%] animate-shimmer" />
           <div className="relative z-10 flex flex-col items-center justify-center space-y-3">
@@ -88,7 +75,7 @@ export default function SafeImage({
                 {alt}
               </p>
               <span className="text-[9px] text-stone-400 font-mono tracking-wider block pt-1 bg-black/20 px-2 py-0.5 rounded-full inline-block">
-                {src.split('/').pop()}
+                {currentSrc ? currentSrc.split('/').pop() : 'No src'}
               </span>
             </div>
           </div>
@@ -96,12 +83,16 @@ export default function SafeImage({
       )}
 
       {/* Successfully Loaded Image */}
-      {status === 'loaded' && resolvedSrc && (
+      {currentSrc && !isError && (
         <img
-          src={resolvedSrc}
+          src={currentSrc}
           alt={alt}
           loading={loading}
-          className="w-full h-full object-cover transition-opacity duration-700 ease-out opacity-100"
+          onLoad={handleLoad}
+          onError={handleError}
+          className={`w-full h-full object-cover transition-opacity duration-700 ease-out ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
           {...props}
         />
       )}
