@@ -345,19 +345,28 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.96, x: 25 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl border border-white/60 bg-stone-100 z-10 group"
+                className="relative w-full h-[320px] sm:h-[400px] md:h-[450px] lg:h-[480px] rounded-[24px] overflow-hidden shadow-2xl border border-white/60 bg-stone-100 z-10 group"
               >
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full"
+                  className="w-full h-full relative overflow-hidden"
                 >
-                  <SafeImage
+                  <img
                     src="/images/hero.webp"
-                    fallbackSrc="/images/hero.jpg"
                     alt="KitchenSpace Studio Premium Modular Kitchen Island"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover block"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      // Fallback to local hero.jpg
+                      if (target.src.indexOf('/images/hero.webp') !== -1) {
+                        target.src = '/images/hero.jpg';
+                      } else {
+                        console.error('Missing image: hero.webp / hero.jpg');
+                      }
+                    }}
                   />
                 </motion.div>
                 
@@ -508,12 +517,20 @@ export default function App() {
               >
                 {/* Large high-quality image */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <SafeImage
+                  <img
                     src={collection.image}
-                    fallbackSrc={collection.fallbackSrc}
                     alt={collection.title}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (collection.fallbackSrc && target.src.indexOf(collection.image) !== -1) {
+                        target.src = collection.fallbackSrc;
+                      } else {
+                        target.src = '/images/hero.jpg';
+                      }
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 block"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                   {/* Dark gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent transition-opacity duration-500 group-hover:from-black/90" />
