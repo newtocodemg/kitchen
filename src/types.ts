@@ -4,6 +4,7 @@ export interface KitchenStyle {
   tagline: string;
   description: string;
   image: string;
+  fallbackSrc?: string;
   features: string[];
   materials: string[];
   hardware: string;

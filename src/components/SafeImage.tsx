@@ -11,7 +11,7 @@ interface SafeImageProps {
 }
 
 export default function SafeImage({
-  src,
+  src = '',
   alt = 'KitchenSpace Studio Premium Modular Kitchen',
   className = '',
   loading = 'lazy',
@@ -19,68 +19,93 @@ export default function SafeImage({
   ...props
 }: SafeImageProps) {
   const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
-  const [currentSrc, setCurrentSrc] = useState<string | undefined>(src);
+  const [resolvedSrc, setResolvedSrc] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    setStatus('loading');
-    setCurrentSrc(src);
-  }, [src]);
-
-  const handleLoad = () => {
-    setStatus('loaded');
-  };
-
-  const handleError = () => {
-    if (fallbackSrc && currentSrc !== fallbackSrc) {
-      setCurrentSrc(fallbackSrc);
-    } else {
+    if (!src) {
       setStatus('error');
+      return;
     }
-  };
+
+    setStatus('loading');
+    setResolvedSrc(undefined);
+
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      setResolvedSrc(src);
+      setStatus('loaded');
+    };
+    img.onerror = () => {
+      // If primary failed, try fallbackSrc if provided
+      if (fallbackSrc && src !== fallbackSrc) {
+        const fallbackImg = new Image();
+        fallbackImg.src = fallbackSrc;
+        fallbackImg.onload = () => {
+          setResolvedSrc(fallbackSrc);
+          setStatus('loaded');
+        };
+        fallbackImg.onerror = () => {
+          setStatus('error');
+        };
+      } else {
+        setStatus('error');
+      }
+    };
+  }, [src, fallbackSrc]);
 
   return (
-    <div className={`relative overflow-hidden w-full h-full ${className}`}>
-      {/* Loading Shimmer/Placeholder */}
+    <div className={`relative overflow-hidden w-full h-full bg-stone-100 ${className}`}>
+      {/* Loading Shimmer State */}
       {status === 'loading' && (
-        <div 
-          className="absolute inset-0 bg-stone-900/40 animate-pulse flex items-center justify-center"
-          style={{ zIndex: 2 }}
-        >
-          {/* Subtle logo or shimmer lines */}
-          <div className="w-12 h-12 rounded-full border border-accent/20 border-t-accent animate-spin" />
+        <div className="absolute inset-0 bg-[#F5F2EB] flex flex-col items-center justify-center p-6 text-center">
+          <div className="absolute inset-0 animate-shimmer-light" />
+          <div className="relative z-10 flex flex-col items-center space-y-3">
+            <div className="w-10 h-10 rounded-full bg-[#1E4D3D]/5 border border-[#1E4D3D]/10 flex items-center justify-center text-[#1E4D3D]/40">
+              <ImageIcon className="w-5 h-5 animate-pulse" />
+            </div>
+            <div className="space-y-1.5 w-full">
+              <div className="h-3 bg-[#1E4D3D]/10 rounded w-28 mx-auto animate-pulse" />
+              <div className="h-2 bg-[#1E4D3D]/5 rounded w-20 mx-auto animate-pulse" />
+            </div>
+          </div>
         </div>
       )}
 
-      {/* Actual Image */}
-      {status !== 'error' && currentSrc ? (
+      {/* Beautiful Premium Skeleton Error Placeholder */}
+      {status === 'error' && (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#123328] to-[#1E4D3D] flex flex-col items-center justify-center p-6 text-center select-none">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent bg-[length:200%_100%] animate-shimmer" />
+          <div className="relative z-10 flex flex-col items-center justify-center space-y-3">
+            <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/25 flex items-center justify-center text-accent/80 shadow-md">
+              <ImageIcon className="w-5 h-5 stroke-[1.5]" />
+            </div>
+            <div className="space-y-1">
+              <span className="text-[9px] uppercase tracking-[0.25em] text-accent font-bold block">
+                KitchenSpace Studio
+              </span>
+              <p className="text-stone-200 text-xs font-sans max-w-[220px] leading-relaxed line-clamp-2">
+                {alt}
+              </p>
+              <span className="text-[9px] text-stone-400 font-mono tracking-wider block pt-1 bg-black/20 px-2 py-0.5 rounded-full inline-block">
+                {src.split('/').pop()}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Successfully Loaded Image */}
+      {status === 'loaded' && resolvedSrc && (
         <img
-          src={currentSrc}
+          src={resolvedSrc}
           alt={alt}
           loading={loading}
-          onLoad={handleLoad}
-          onError={handleError}
-          referrerPolicy="no-referrer"
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
-            status === 'loaded' ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="w-full h-full object-cover transition-opacity duration-700 ease-out opacity-100"
           {...props}
         />
-      ) : null}
-
-      {/* Fallback View (Zero Broken Placeholders) */}
-      {status === 'error' && (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1E4D3D] to-[#12362a] flex flex-col items-center justify-center p-6 text-center select-none border border-white/5">
-          <div className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 animate-pulse">
-            <ImageIcon className="w-6 h-6 stroke-[1.5]" />
-          </div>
-          <span className="text-[10px] uppercase tracking-widest text-accent font-bold mb-1">
-            KitchenSpace Design
-          </span>
-          <span className="text-[11px] text-stone-300 font-sans max-w-[200px] line-clamp-1">
-            {alt}
-          </span>
-        </div>
       )}
     </div>
   );
 }
+

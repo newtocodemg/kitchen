@@ -11,6 +11,7 @@ interface Project {
   area: string;
   style: string;
   image: string;
+  fallbackSrc?: string;
   specs: {
     material: string;
     hardware: string;
@@ -28,7 +29,8 @@ const PROJECTS: Project[] = [
     type: 'L-Shaped Modular Layout',
     area: '180 sq. ft.',
     style: 'Walnut & Premium Marble',
-    image: '/images/l-shape.jpg',
+    image: '/images/project-1.webp',
+    fallbackSrc: '/images/l-shape.jpg',
     specs: {
       material: 'Imported Walnut Veneer & Italian Carrara',
       hardware: 'Blum Legrabox Tip-On Aventos HF',
@@ -48,7 +50,8 @@ const PROJECTS: Project[] = [
     type: 'Island Modular Layout',
     area: '150 sq. ft.',
     style: 'Blonde Oak & Alpine White',
-    image: '/images/hero.jpg',
+    image: '/images/project-2.webp',
+    fallbackSrc: '/images/hero.jpg',
     specs: {
       material: 'Sustainably sourced Blonde Oak & Acrylic white shutters',
       hardware: 'Hettich Sensys soft-close with dampening',
@@ -68,7 +71,8 @@ const PROJECTS: Project[] = [
     type: 'Parallel Galley Layout',
     area: '220 sq. ft.',
     style: 'Charcoal Satin & Nero Marquina',
-    image: '/images/obsidian.jpg',
+    image: '/images/project-3.webp',
+    fallbackSrc: '/images/obsidian.jpg',
     specs: {
       material: 'E1 moisture-resistant core boards in deep obsidian charcoal',
       hardware: 'Grass Nova Pro Scala double-wall drawers',
@@ -88,7 +92,8 @@ const PROJECTS: Project[] = [
     type: 'U-Shaped Cozy Layout',
     area: '165 sq. ft.',
     style: 'Warm Walnut & Sand Cashmere',
-    image: '/images/cozy-family.jpg',
+    image: '/images/project-4.webp',
+    fallbackSrc: '/images/cozy-family.jpg',
     specs: {
       material: 'Premium warm American Walnut timber & matte Cashmere laminate',
       hardware: 'Blum Tandembox antaro deep storage systems',
@@ -108,7 +113,8 @@ const PROJECTS: Project[] = [
     type: 'Open Parallel Concept',
     area: '135 sq. ft.',
     style: 'Matte Graphite & Natural Ash',
-    image: '/images/parallel.jpg',
+    image: '/images/project-5.webp',
+    fallbackSrc: '/images/parallel.jpg',
     specs: {
       material: 'Eco-certified high density fibreboards in graphite gray',
       hardware: 'Hettich InnoTech Atira drawer channels',
@@ -128,7 +134,8 @@ const PROJECTS: Project[] = [
     type: 'Straight Layout with Island',
     area: '140 sq. ft.',
     style: 'Ultra-Minimal Gloss White & Quartz',
-    image: '/images/minimal-white.jpg',
+    image: '/images/project-6.webp',
+    fallbackSrc: '/images/minimal-white.jpg',
     specs: {
       material: 'Seamless white lacquer high-gloss panels & snow quartz',
       hardware: 'Blum Servo-Drive electric touch opening',
@@ -190,6 +197,7 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
                 <div className="h-72 overflow-hidden relative">
                   <SafeImage
                     src={project.image}
+                    fallbackSrc={project.fallbackSrc}
                     alt={project.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -274,6 +282,7 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
                 <div className="relative h-60 sm:h-72 w-full overflow-hidden shrink-0">
                   <SafeImage
                     src={selectedProject.image}
+                    fallbackSrc={selectedProject.fallbackSrc}
                     alt={selectedProject.title}
                     loading="lazy"
                     className="w-full h-full object-cover"

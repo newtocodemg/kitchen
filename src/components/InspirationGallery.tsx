@@ -9,6 +9,7 @@ interface GalleryItem {
   style: string;
   city: string;
   image: string;
+  fallbackSrc?: string;
   aspect: string;
 }
 
@@ -18,7 +19,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'The Scandinavian Oak',
     style: 'L-Shaped Modular',
     city: 'Bangalore',
-    image: '/images/hero.jpg',
+    image: '/images/hero.webp',
+    fallbackSrc: '/images/hero.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -26,7 +28,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Midnight Minimalist',
     style: 'Island Layout',
     city: 'Mumbai',
-    image: '/images/obsidian.jpg',
+    image: '/images/kitchen-island.webp',
+    fallbackSrc: '/images/obsidian.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -34,7 +37,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Emerald Brass Opulence',
     style: 'U-Shaped Cozy',
     city: 'Delhi NCR',
-    image: '/images/japandi.jpg',
+    image: '/images/kitchen-open.webp',
+    fallbackSrc: '/images/japandi.jpg',
     aspect: 'aspect-[1/1]'
   },
   {
@@ -42,7 +46,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Contemporary Glasshouse',
     style: 'Open Studio',
     city: 'Pune',
-    image: '/images/parallel.jpg',
+    image: '/images/kitchen-parallel.webp',
+    fallbackSrc: '/images/parallel.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -50,7 +55,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Charcoal Matte Professional',
     style: 'Parallel Galley',
     city: 'Hyderabad',
-    image: '/images/cozy-family.jpg',
+    image: '/images/kitchen-island.webp',
+    fallbackSrc: '/images/cozy-family.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -58,7 +64,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'The Calacatta Grand',
     style: 'Island Layout',
     city: 'Chennai',
-    image: '/images/minimal-white.jpg',
+    image: '/images/kitchen-open.webp',
+    fallbackSrc: '/images/minimal-white.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -66,7 +73,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Concrete Brutalist Loft',
     style: 'Contemporary Modern',
     city: 'Bangalore',
-    image: '/images/l-shape.jpg',
+    image: '/images/kitchen-l.webp',
+    fallbackSrc: '/images/l-shape.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -74,7 +82,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Warm Marble & Walnut',
     style: 'Island Layout',
     city: 'Kolkata',
-    image: '/images/u-shape.jpg',
+    image: '/images/kitchen-u.webp',
+    fallbackSrc: '/images/u-shape.jpg',
     aspect: 'aspect-[1/1]'
   },
   {
@@ -82,7 +91,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Bright Cream Lacquer',
     style: 'L-Shaped Modular',
     city: 'Mumbai',
-    image: '/images/kitchen-after.jpg',
+    image: '/images/hero.webp',
+    fallbackSrc: '/images/kitchen-after.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -90,7 +100,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Sophisticated Matte Handleless',
     style: 'U-Shaped Cozy',
     city: 'Delhi NCR',
-    image: '/images/hero.jpg',
+    image: '/images/kitchen-l.webp',
+    fallbackSrc: '/images/hero.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -98,7 +109,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Penthouse Panoramic View',
     style: 'Island Layout',
     city: 'Hyderabad',
-    image: '/images/obsidian.jpg',
+    image: '/images/kitchen-parallel.webp',
+    fallbackSrc: '/images/obsidian.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -106,7 +118,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Ivory & Champagne Chic',
     style: 'Contemporary Modern',
     city: 'Pune',
-    image: '/images/japandi.jpg',
+    image: '/images/kitchen-open.webp',
+    fallbackSrc: '/images/japandi.jpg',
     aspect: 'aspect-[3/4]'
   }
 ];
@@ -174,6 +187,7 @@ export default function InspirationGallery() {
                 {/* Lazy loading images */}
                 <SafeImage
                   src={item.image}
+                  fallbackSrc={item.fallbackSrc}
                   alt={item.title}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -249,6 +263,7 @@ export default function InspirationGallery() {
               >
                 <SafeImage
                   src={GALLERY_ITEMS[activeIdx].image}
+                  fallbackSrc={GALLERY_ITEMS[activeIdx].fallbackSrc}
                   alt={GALLERY_ITEMS[activeIdx].title}
                   loading="eager"
                   className="max-w-full max-h-[70vh] object-contain"

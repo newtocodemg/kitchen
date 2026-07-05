@@ -89,6 +89,7 @@ export default function DesignShowcaseDrawer({ isOpen, onClose, onSelectStyle }:
                     <div className="relative h-64 rounded-2xl overflow-hidden shadow-sm group">
                       <SafeImage
                         src={style.image}
+                        fallbackSrc={style.fallbackSrc}
                         alt={style.name}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

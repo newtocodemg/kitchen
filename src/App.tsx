@@ -103,37 +103,43 @@ const KITCHEN_COLLECTIONS = [
     id: 'l-shaped',
     title: 'L-Shaped Kitchen',
     description: 'Perfect for compact and medium-sized homes.',
-    image: '/images/l-shape.jpg',
+    image: '/images/kitchen-l.webp',
+    fallbackSrc: '/images/l-shape.jpg',
   },
   {
     id: 'u-shaped',
     title: 'U-Shaped Kitchen',
     description: 'Maximum storage with efficient workflow.',
-    image: '/images/u-shape.jpg',
+    image: '/images/kitchen-u.webp',
+    fallbackSrc: '/images/u-shape.jpg',
   },
   {
     id: 'parallel',
     title: 'Parallel Kitchen',
     description: 'Ideal for modern apartments and narrow spaces.',
-    image: '/images/parallel.jpg',
+    image: '/images/kitchen-parallel.webp',
+    fallbackSrc: '/images/parallel.jpg',
   },
   {
     id: 'island',
     title: 'Island Kitchen',
     description: 'Luxury open-concept kitchen with central island.',
-    image: '/images/hero.jpg',
+    image: '/images/kitchen-island.webp',
+    fallbackSrc: '/images/hero.jpg',
   },
   {
     id: 'open',
     title: 'Open Kitchen',
     description: 'Seamlessly connects cooking and living spaces.',
-    image: '/images/japandi.jpg',
+    image: '/images/kitchen-open.webp',
+    fallbackSrc: '/images/japandi.jpg',
   },
   {
     id: 'contemporary-luxury',
     title: 'Contemporary Luxury',
     description: 'Premium finishes with clean minimalist aesthetics.',
-    image: '/images/obsidian.jpg',
+    image: '/images/hero.webp',
+    fallbackSrc: '/images/obsidian.jpg',
   },
 ];
 
@@ -347,7 +353,8 @@ export default function App() {
                   className="w-full h-full"
                 >
                   <SafeImage
-                    src="/images/hero.jpg"
+                    src="/images/hero.webp"
+                    fallbackSrc="/images/hero.jpg"
                     alt="KitchenSpace Studio Premium Modular Kitchen Island"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -503,6 +510,7 @@ export default function App() {
                 <div className="absolute inset-0 overflow-hidden">
                   <SafeImage
                     src={collection.image}
+                    fallbackSrc={collection.fallbackSrc}
                     alt={collection.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
