@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Calendar, ChevronRight, Sparkles, Star } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface CallToActionBannerProps {
   onOpenConsultation: () => void;
@@ -30,11 +31,10 @@ export default function CallToActionBanner({ onOpenConsultation, onOpenProjects 
         style={{ y: backgroundY }}
         className="absolute inset-0 h-[120%] w-full"
       >
-        <img 
+        <SafeImage 
           src="/images/hero.jpg" 
           alt="Premium luxury modular kitchen island" 
           loading="lazy"
-          referrerPolicy="no-referrer"
           className="w-full h-full object-cover select-none scale-105"
         />
         {/* Soft elegant blur */}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Layout, Maximize2, ArrowRight, X, Check, Award, Cpu, ShieldCheck } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface Project {
   id: string;
@@ -187,11 +188,10 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
               <div>
                 {/* Image with zoom effect */}
                 <div className="h-72 overflow-hidden relative">
-                  <img
+                  <SafeImage
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
@@ -272,7 +272,7 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
               >
                 {/* Header Image banner */}
                 <div className="relative h-60 sm:h-72 w-full overflow-hidden shrink-0">
-                  <img
+                  <SafeImage
                     src={selectedProject.image}
                     alt={selectedProject.title}
                     loading="lazy"

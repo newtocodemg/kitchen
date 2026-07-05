@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ArrowRight, ArrowLeft, Check, Calendar, Clock, User, Phone, Mail, FileText, Sparkles, AlertCircle } from 'lucide-react';
 import { KITCHEN_STYLES } from '../data';
 import { ConsultationLead } from '../types';
+import SafeImage from './SafeImage';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -276,11 +277,10 @@ export default function ConsultationModal({ isOpen, onClose, preSelectedStyleId 
                             }`}
                           >
                             <div className="h-28 overflow-hidden relative">
-                              <img
+                              <SafeImage
                                 src={style.image}
                                 alt={style.name}
                                 loading="lazy"
-                                referrerPolicy="no-referrer"
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
                               {selectedStyleId === style.id && (

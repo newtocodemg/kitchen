@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Pause, Volume2, VolumeX, X, Sparkles, Clock, Star, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface VideoStory {
   id: string;
@@ -153,11 +154,10 @@ export default function VideoStories() {
             >
               {/* Aspect Ratio container with overlay */}
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img
+                <SafeImage
                   src={story.thumbnailUrl}
                   alt={story.title}
                   loading="lazy"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 

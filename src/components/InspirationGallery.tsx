@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface GalleryItem {
   id: string;
@@ -171,11 +172,10 @@ export default function InspirationGallery() {
             >
               <div className={`relative w-full ${item.aspect} overflow-hidden bg-stone-100`}>
                 {/* Lazy loading images */}
-                <img
+                <SafeImage
                   src={item.image}
                   alt={item.title}
                   loading="lazy"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 
@@ -239,16 +239,21 @@ export default function InspirationGallery() {
 
             {/* Main Lightbox Content Area */}
             <div className="relative max-w-5xl max-h-[80vh] flex flex-col items-center justify-center">
-              <motion.img
+              <motion.div
                 key={GALLERY_ITEMS[activeIdx].image}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                src={GALLERY_ITEMS[activeIdx].image}
-                alt={GALLERY_ITEMS[activeIdx].title}
-                className="max-w-full max-h-[70vh] rounded-[24px] shadow-2xl border border-white/10 object-contain"
-              />
+                className="max-w-full max-h-[70vh] rounded-[24px] shadow-2xl border border-white/10 overflow-hidden"
+              >
+                <SafeImage
+                  src={GALLERY_ITEMS[activeIdx].image}
+                  alt={GALLERY_ITEMS[activeIdx].title}
+                  loading="eager"
+                  className="max-w-full max-h-[70vh] object-contain"
+                />
+              </motion.div>
 
               {/* Lightbox Meta Details */}
               <div className="mt-4 text-center text-white space-y-1 px-4">

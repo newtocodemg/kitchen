@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Archive, Lightbulb, ArrowRight } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface BeforeAfterShowcaseProps {
   onOpenConsultation: () => void;
@@ -96,11 +97,10 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
         >
           {/* BEFORE IMAGE (Bottom Layer) */}
           <div className="absolute inset-0 w-full h-full">
-            <img 
+            <SafeImage 
               src="/images/kitchen-before.jpg" 
               alt="Cluttered, outdated kitchen before renovation" 
               loading="lazy"
-              referrerPolicy="no-referrer"
               className="w-full h-full object-cover pointer-events-none transition-transform duration-700"
             />
             {/* "Before" Label */}
@@ -116,11 +116,10 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
           >
             {/* This image needs to retain container size even if its parent is clipped */}
             <div className="absolute inset-0 w-[100vw] h-full" style={{ width: containerRef.current?.getBoundingClientRect().width || '100%' }}>
-              <img 
+              <SafeImage 
                 src="/images/kitchen-after.jpg" 
                 alt="Beautiful renovated luxury kitchen" 
                 loading="lazy"
-                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover pointer-events-none transition-transform duration-700"
               />
               {/* "After" Label */}

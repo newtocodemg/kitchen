@@ -27,6 +27,7 @@ import Navbar from './components/Navbar';
 import ConsultationModal from './components/ConsultationModal';
 import DesignShowcaseDrawer from './components/DesignShowcaseDrawer';
 import FeaturedProjects from './components/FeaturedProjects';
+import SafeImage from './components/SafeImage';
 import BeforeAfterShowcase from './components/BeforeAfterShowcase';
 import DesignProcessTimeline from './components/DesignProcessTimeline';
 import CallToActionBanner from './components/CallToActionBanner';
@@ -340,15 +341,18 @@ export default function App() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl border border-white/60 bg-stone-100 z-10 group"
               >
-                <motion.img
-                  src="/images/hero.jpg"
-                  alt="KitchenSpace Studio Premium Modular Kitchen Island"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
+                <motion.div
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full"
+                >
+                  <SafeImage
+                    src="/images/hero.jpg"
+                    alt="KitchenSpace Studio Premium Modular Kitchen Island"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
                 
                 {/* Subtle light leak effect overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-stone-900/10 via-white/5 to-transparent pointer-events-none" />
@@ -497,11 +501,10 @@ export default function App() {
               >
                 {/* Large high-quality image */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <img
+                  <SafeImage
                     src={collection.image}
                     alt={collection.title}
                     loading="lazy"
-                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Dark gradient overlay */}

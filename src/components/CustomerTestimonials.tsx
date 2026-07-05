@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, ChevronLeft, ChevronRight, Quote, ArrowUpRight } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface Testimonial {
   id: string;
@@ -193,11 +194,10 @@ export default function CustomerTestimonials() {
                     {/* Header: Photo & Name */}
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-stone-100 shrink-0">
-                        <img
+                        <SafeImage
                           src={testimonial.image}
                           alt={testimonial.name}
                           loading="lazy"
-                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
