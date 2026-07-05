@@ -32,7 +32,8 @@ export default function CallToActionBanner({ onOpenConsultation, onOpenProjects 
         className="absolute inset-0 h-[120%] w-full"
       >
         <SafeImage 
-          src="/images/hero.jpg" 
+          src="/images/hero.webp" 
+          fallbackSrc="/images/hero.jpg" 
           alt="Premium luxury modular kitchen island" 
           loading="lazy"
           className="w-full h-full object-cover select-none scale-105"
