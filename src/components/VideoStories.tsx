@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Pause, Volume2, VolumeX, X, Sparkles, Clock, Star, ArrowUpRight, CheckCircle2 } from 'lucide-react';
-import SafeImage from './SafeImage';
 
 interface VideoStory {
   id: string;
@@ -158,12 +157,21 @@ export default function VideoStories() {
             >
               {/* Aspect Ratio container with overlay */}
               <div className="relative aspect-[16/10] overflow-hidden">
-                <SafeImage
+                <img
                   src={story.thumbnailUrl}
-                  fallbackSrc={story.fallbackSrc}
                   alt={story.title}
+                  referrerPolicy="no-referrer"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 block"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (story.fallbackSrc && target.src.indexOf(story.thumbnailUrl) !== -1) {
+                      target.src = story.fallbackSrc;
+                    } else {
+                      target.src = '/images/hero.jpg';
+                    }
+                  }}
                 />
                 
                 {/* Elegant dark green linear/radial mask */}

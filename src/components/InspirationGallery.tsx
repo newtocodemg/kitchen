@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
-import SafeImage from './SafeImage';
 
 interface GalleryItem {
   id: string;
@@ -185,12 +184,21 @@ export default function InspirationGallery() {
             >
               <div className={`relative w-full ${item.aspect} overflow-hidden bg-stone-100`}>
                 {/* Lazy loading images */}
-                <SafeImage
+                <img
                   src={item.image}
-                  fallbackSrc={item.fallbackSrc}
                   alt={item.title}
+                  referrerPolicy="no-referrer"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 block"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (item.fallbackSrc && target.src.indexOf(item.image) !== -1) {
+                      target.src = item.fallbackSrc;
+                    } else {
+                      target.src = '/images/hero.jpg';
+                    }
+                  }}
                 />
                 
                 {/* Elegant radial/linear gradient overlay */}
@@ -261,12 +269,21 @@ export default function InspirationGallery() {
                 transition={{ duration: 0.4 }}
                 className="max-w-full max-h-[70vh] rounded-[24px] shadow-2xl border border-white/10 overflow-hidden"
               >
-                <SafeImage
+                <img
                   src={GALLERY_ITEMS[activeIdx].image}
-                  fallbackSrc={GALLERY_ITEMS[activeIdx].fallbackSrc}
                   alt={GALLERY_ITEMS[activeIdx].title}
+                  referrerPolicy="no-referrer"
                   loading="eager"
-                  className="max-w-full max-h-[70vh] object-contain"
+                  className="max-w-full max-h-[70vh] object-contain block"
+                  style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain', display: 'block' }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (GALLERY_ITEMS[activeIdx].fallbackSrc && target.src.indexOf(GALLERY_ITEMS[activeIdx].image) !== -1) {
+                      target.src = GALLERY_ITEMS[activeIdx].fallbackSrc;
+                    } else {
+                      target.src = '/images/hero.jpg';
+                    }
+                  }}
                 />
               </motion.div>
 

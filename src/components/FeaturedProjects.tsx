@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Layout, Maximize2, ArrowRight, X, Check, Award, Cpu, ShieldCheck } from 'lucide-react';
-import SafeImage from './SafeImage';
 
 interface Project {
   id: string;
@@ -195,12 +194,21 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
               <div>
                 {/* Image with zoom effect */}
                 <div className="h-72 overflow-hidden relative">
-                  <SafeImage
+                  <img
                     src={project.image}
-                    fallbackSrc={project.fallbackSrc}
                     alt={project.title}
+                    referrerPolicy="no-referrer"
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 block"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (project.fallbackSrc && target.src.indexOf(project.image) !== -1) {
+                        target.src = project.fallbackSrc;
+                      } else {
+                        target.src = '/images/hero.jpg';
+                      }
+                    }}
                   />
                   
                   {/* Premium Location Pin badge */}
@@ -280,12 +288,21 @@ export default function FeaturedProjects({ onOpenConsultation }: FeaturedProject
               >
                 {/* Header Image banner */}
                 <div className="relative h-60 sm:h-72 w-full overflow-hidden shrink-0">
-                  <SafeImage
+                  <img
                     src={selectedProject.image}
-                    fallbackSrc={selectedProject.fallbackSrc}
                     alt={selectedProject.title}
+                    referrerPolicy="no-referrer"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover block"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (selectedProject.fallbackSrc && target.src.indexOf(selectedProject.image) !== -1) {
+                        target.src = selectedProject.fallbackSrc;
+                      } else {
+                        target.src = '/images/hero.jpg';
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent" />
                   <button

@@ -27,7 +27,6 @@ import Navbar from './components/Navbar';
 import ConsultationModal from './components/ConsultationModal';
 import DesignShowcaseDrawer from './components/DesignShowcaseDrawer';
 import FeaturedProjects from './components/FeaturedProjects';
-import SafeImage from './components/SafeImage';
 import BeforeAfterShowcase from './components/BeforeAfterShowcase';
 import DesignProcessTimeline from './components/DesignProcessTimeline';
 import CallToActionBanner from './components/CallToActionBanner';

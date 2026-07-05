@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ArrowRight, Check, Hammer, Settings, Layers } from 'lucide-react';
 import { KITCHEN_STYLES } from '../data';
 import { KitchenStyle } from '../types';
-import SafeImage from './SafeImage';
 
 interface DesignShowcaseDrawerProps {
   isOpen: boolean;
@@ -87,12 +86,21 @@ export default function DesignShowcaseDrawer({ isOpen, onClose, onSelectStyle }:
                   >
                     {/* Image with subtle hover parallax scaling */}
                     <div className="relative h-64 rounded-2xl overflow-hidden shadow-sm group">
-                      <SafeImage
+                      <img
                         src={style.image}
-                        fallbackSrc={style.fallbackSrc}
                         alt={style.name}
+                        referrerPolicy="no-referrer"
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 block"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (style.fallbackSrc && target.src.indexOf(style.image) !== -1) {
+                            target.src = style.fallbackSrc;
+                          } else {
+                            target.src = '/images/hero.jpg';
+                          }
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex items-end p-6">
                         <div>

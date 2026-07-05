@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, ChevronLeft, ChevronRight, Quote, ArrowUpRight } from 'lucide-react';
-import SafeImage from './SafeImage';
 
 interface Testimonial {
   id: string;
@@ -201,12 +200,21 @@ export default function CustomerTestimonials() {
                     {/* Header: Photo & Name */}
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-stone-100 shrink-0">
-                        <SafeImage
+                        <img
                           src={testimonial.image}
-                          fallbackSrc={testimonial.fallbackSrc}
                           alt={testimonial.name}
+                          referrerPolicy="no-referrer"
                           loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 block"
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (testimonial.fallbackSrc && target.src.indexOf(testimonial.image) !== -1) {
+                              target.src = testimonial.fallbackSrc;
+                            } else {
+                              target.src = '/images/hero.jpg';
+                            }
+                          }}
                         />
                       </div>
                       <div>

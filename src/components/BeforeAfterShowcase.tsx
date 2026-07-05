@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Archive, Lightbulb, ArrowRight } from 'lucide-react';
-import SafeImage from './SafeImage';
 
 interface BeforeAfterShowcaseProps {
   onOpenConsultation: () => void;
@@ -97,11 +96,17 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
         >
           {/* BEFORE IMAGE (Bottom Layer) */}
           <div className="absolute inset-0 w-full h-full">
-            <SafeImage 
+            <img 
               src="/images/kitchen-before.jpg" 
               alt="Cluttered, outdated kitchen before renovation" 
+              referrerPolicy="no-referrer"
               loading="lazy"
-              className="w-full h-full object-cover pointer-events-none transition-transform duration-700"
+              className="w-full h-full object-cover pointer-events-none transition-transform duration-700 block"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.src = '/images/hero.jpg';
+              }}
             />
             {/* "Before" Label */}
             <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white font-mono text-[11px] uppercase tracking-wider px-3.5 py-1.5 rounded-[14px] border border-white/10 shadow-md">
@@ -116,11 +121,17 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
           >
             {/* This image needs to retain container size even if its parent is clipped */}
             <div className="absolute inset-0 w-[100vw] h-full" style={{ width: containerRef.current?.getBoundingClientRect().width || '100%' }}>
-              <SafeImage 
+              <img 
                 src="/images/kitchen-after.jpg" 
                 alt="Beautiful renovated luxury kitchen" 
+                referrerPolicy="no-referrer"
                 loading="lazy"
-                className="w-full h-full object-cover pointer-events-none transition-transform duration-700"
+                className="w-full h-full object-cover pointer-events-none transition-transform duration-700 block"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.src = '/images/hero.jpg';
+                }}
               />
               {/* "After" Label */}
               <div className="absolute top-4 left-4 bg-accent/90 text-primary-dark font-sans font-bold text-[11px] uppercase tracking-widest px-3.5 py-1.5 rounded-[14px] shadow-md">
