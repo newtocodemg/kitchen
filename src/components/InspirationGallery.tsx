@@ -17,7 +17,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'The Scandinavian Oak',
     style: 'L-Shaped Modular',
     city: 'Bangalore',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+    image: '/images/hero.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -25,7 +25,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Midnight Minimalist',
     style: 'Island Layout',
     city: 'Mumbai',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    image: '/images/obsidian.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -33,7 +33,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Emerald Brass Opulence',
     style: 'U-Shaped Cozy',
     city: 'Delhi NCR',
-    image: 'https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80',
+    image: '/images/japandi.jpg',
     aspect: 'aspect-[1/1]'
   },
   {
@@ -41,7 +41,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Contemporary Glasshouse',
     style: 'Open Studio',
     city: 'Pune',
-    image: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80',
+    image: '/images/parallel.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -49,7 +49,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Charcoal Matte Professional',
     style: 'Parallel Galley',
     city: 'Hyderabad',
-    image: 'https://images.unsplash.com/photo-1565538810844-1e119de867c8?auto=format&fit=crop&w=800&q=80',
+    image: '/images/cozy-family.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -57,7 +57,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'The Calacatta Grand',
     style: 'Island Layout',
     city: 'Chennai',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+    image: '/images/minimal-white.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -65,7 +65,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Concrete Brutalist Loft',
     style: 'Contemporary Modern',
     city: 'Bangalore',
-    image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
+    image: '/images/l-shape.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -73,7 +73,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Warm Marble & Walnut',
     style: 'Island Layout',
     city: 'Kolkata',
-    image: 'https://images.unsplash.com/photo-1539924428412-730136773e5a?auto=format&fit=crop&w=800&q=80',
+    image: '/images/u-shape.jpg',
     aspect: 'aspect-[1/1]'
   },
   {
@@ -81,7 +81,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Bright Cream Lacquer',
     style: 'L-Shaped Modular',
     city: 'Mumbai',
-    image: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=800&q=80',
+    image: '/images/kitchen-after.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
@@ -89,7 +89,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Sophisticated Matte Handleless',
     style: 'U-Shaped Cozy',
     city: 'Delhi NCR',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+    image: '/images/hero.jpg',
     aspect: 'aspect-[4/3]'
   },
   {
@@ -97,7 +97,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Penthouse Panoramic View',
     style: 'Island Layout',
     city: 'Hyderabad',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+    image: '/images/obsidian.jpg',
     aspect: 'aspect-[2/3]'
   },
   {
@@ -105,7 +105,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Ivory & Champagne Chic',
     style: 'Contemporary Modern',
     city: 'Pune',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80',
+    image: '/images/japandi.jpg',
     aspect: 'aspect-[3/4]'
   }
 ];

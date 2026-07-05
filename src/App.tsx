@@ -102,37 +102,37 @@ const KITCHEN_COLLECTIONS = [
     id: 'l-shaped',
     title: 'L-Shaped Kitchen',
     description: 'Perfect for compact and medium-sized homes.',
-    image: '/src/assets/images/luxury_kitchen_l_shape_1783190565020.jpg',
+    image: '/images/l-shape.jpg',
   },
   {
     id: 'u-shaped',
     title: 'U-Shaped Kitchen',
     description: 'Maximum storage with efficient workflow.',
-    image: '/src/assets/images/luxury_kitchen_u_shape_1783190578978.jpg',
+    image: '/images/u-shape.jpg',
   },
   {
     id: 'parallel',
     title: 'Parallel Kitchen',
     description: 'Ideal for modern apartments and narrow spaces.',
-    image: '/src/assets/images/luxury_kitchen_parallel_1783190591738.jpg',
+    image: '/images/parallel.jpg',
   },
   {
     id: 'island',
     title: 'Island Kitchen',
     description: 'Luxury open-concept kitchen with central island.',
-    image: '/src/assets/images/luxury_kitchen_hero_1783190169401.jpg',
+    image: '/images/hero.jpg',
   },
   {
     id: 'open',
     title: 'Open Kitchen',
     description: 'Seamlessly connects cooking and living spaces.',
-    image: '/src/assets/images/luxury_kitchen_japandi_1783190186206.jpg',
+    image: '/images/japandi.jpg',
   },
   {
     id: 'contemporary-luxury',
     title: 'Contemporary Luxury',
     description: 'Premium finishes with clean minimalist aesthetics.',
-    image: '/src/assets/images/luxury_kitchen_obsidian_1783190201969.jpg',
+    image: '/images/obsidian.jpg',
   },
 ];
 
@@ -341,7 +341,7 @@ export default function App() {
                 className="relative w-full aspect-[4/3] rounded-[24px] overflow-hidden shadow-2xl border border-white/60 bg-stone-100 z-10 group"
               >
                 <motion.img
-                  src="/src/assets/images/luxury_kitchen_hero_1783190169401.jpg"
+                  src="/images/hero.jpg"
                   alt="KitchenSpace Studio Premium Modular Kitchen Island"
                   loading="lazy"
                   referrerPolicy="no-referrer"

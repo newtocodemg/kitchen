@@ -31,7 +31,7 @@ export default function CallToActionBanner({ onOpenConsultation, onOpenProjects 
         className="absolute inset-0 h-[120%] w-full"
       >
         <img 
-          src="/src/assets/images/luxury_kitchen_hero_1783190169401.jpg" 
+          src="/images/hero.jpg" 
           alt="Premium luxury modular kitchen island" 
           loading="lazy"
           referrerPolicy="no-referrer"

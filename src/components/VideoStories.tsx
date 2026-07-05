@@ -23,7 +23,7 @@ const VIDEO_STORIES: VideoStory[] = [
     city: 'Bangalore',
     duration: '1:12',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-kitchen-with-modern-appliances-and-cabinetry-41584-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+    thumbnailUrl: '/images/hero.jpg',
     highlights: ['Calacatta marble island', 'Handleless matte cabinets', 'Smart ambient profiles'],
     quote: 'The transformation from our dark 90s kitchen to this sleek, fluid sunlit space has fundamentally changed how our family interacts daily.',
     rating: 5
@@ -35,7 +35,7 @@ const VIDEO_STORIES: VideoStory[] = [
     city: 'Mumbai',
     duration: '1:05',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-pouring-hot-water-into-a-cup-of-coffee-41582-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    thumbnailUrl: '/images/japandi.jpg',
     highlights: ['Natural timber veneers', 'Blum motion lifters', 'Concealed storage drawer'],
     quote: 'We wanted organic minimalism. Every cabinet moves silently, and the custom wood grains align across panels perfectly.',
     rating: 5
@@ -47,7 +47,7 @@ const VIDEO_STORIES: VideoStory[] = [
     city: 'Delhi NCR',
     duration: '1:18',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-person-cutting-vegetables-in-a-kitchen-41581-large.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80',
+    thumbnailUrl: '/images/obsidian.jpg',
     highlights: ['Tinted brass custom knobs', 'Built-in herb irrigation', 'Fluted glass shutters'],
     quote: 'Bespoke design at its absolute finest. Guests are drawn directly to the counter the moment they enter our home now.',
     rating: 5

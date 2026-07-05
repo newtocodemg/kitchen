@@ -6,7 +6,7 @@ export const KITCHEN_STYLES: KitchenStyle[] = [
     name: 'Scandinavian Oak',
     tagline: 'Minimalist warmth & natural sunlight',
     description: 'An airy, organic design blending natural blonde oak wood cabinetry with polished marble and elegant minimalism. Perfect for homes that cherish warmth, openness, and modern craft.',
-    image: '/src/assets/images/luxury_kitchen_hero_1783190169401.jpg',
+    image: '/images/hero.jpg',
     features: [
       'Seamless flat-panel blonde oak veneers',
       'Solid Calacatta marble waterfall island',
@@ -21,7 +21,7 @@ export const KITCHEN_STYLES: KitchenStyle[] = [
     name: 'Japandi Forest',
     tagline: 'Wabi-sabi peace meets deep forest tones',
     description: 'A serene hybrid of Japanese minimalism and Scandinavian function. Featuring luxurious matte forest green cabinets paired with light ash wood accents and natural concrete surfaces.',
-    image: '/src/assets/images/luxury_kitchen_japandi_1783190186206.jpg',
+    image: '/images/japandi.jpg',
     features: [
       'Anti-fingerprint matte forest green panels',
       'Solid light ash wood open shelving',
@@ -36,7 +36,7 @@ export const KITCHEN_STYLES: KitchenStyle[] = [
     name: 'Obsidian & Brass',
     tagline: 'Bold, dark dramatic luxury',
     description: 'An ultra-luxurious, statement design featuring deep charcoal matte lacquer cabinets, exquisite Nero Marquina black marble with gold veining, and hand-brushed solid brass hardware.',
-    image: '/src/assets/images/luxury_kitchen_obsidian_1783190201969.jpg',
+    image: '/images/obsidian.jpg',
     features: [
       'Deep obsidian black lacquered doors',
       'Nero Marquina book-matched marble island',

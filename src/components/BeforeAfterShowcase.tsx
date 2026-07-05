@@ -97,7 +97,7 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
           {/* BEFORE IMAGE (Bottom Layer) */}
           <div className="absolute inset-0 w-full h-full">
             <img 
-              src="/src/assets/images/outdated_kitchen_before_1783190829364.jpg" 
+              src="/images/kitchen-before.jpg" 
               alt="Cluttered, outdated kitchen before renovation" 
               loading="lazy"
               referrerPolicy="no-referrer"
@@ -117,7 +117,7 @@ export default function BeforeAfterShowcase({ onOpenConsultation }: BeforeAfterS
             {/* This image needs to retain container size even if its parent is clipped */}
             <div className="absolute inset-0 w-[100vw] h-full" style={{ width: containerRef.current?.getBoundingClientRect().width || '100%' }}>
               <img 
-                src="/src/assets/images/renovated_kitchen_after_1783190843956.jpg" 
+                src="/images/kitchen-after.jpg" 
                 alt="Beautiful renovated luxury kitchen" 
                 loading="lazy"
                 referrerPolicy="no-referrer"

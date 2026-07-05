@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     type: 'L-Shaped Modular Layout',
     area: '180 sq. ft.',
     style: 'Walnut & Premium Marble',
-    image: '/src/assets/images/luxury_kitchen_l_shape_1783190565020.jpg',
+    image: '/images/l-shape.jpg',
     specs: {
       material: 'Imported Walnut Veneer & Italian Carrara',
       hardware: 'Blum Legrabox Tip-On Aventos HF',
@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     type: 'Island Modular Layout',
     area: '150 sq. ft.',
     style: 'Blonde Oak & Alpine White',
-    image: '/src/assets/images/luxury_kitchen_hero_1783190169401.jpg',
+    image: '/images/hero.jpg',
     specs: {
       material: 'Sustainably sourced Blonde Oak & Acrylic white shutters',
       hardware: 'Hettich Sensys soft-close with dampening',
@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
     type: 'Parallel Galley Layout',
     area: '220 sq. ft.',
     style: 'Charcoal Satin & Nero Marquina',
-    image: '/src/assets/images/luxury_kitchen_obsidian_1783190201969.jpg',
+    image: '/images/obsidian.jpg',
     specs: {
       material: 'E1 moisture-resistant core boards in deep obsidian charcoal',
       hardware: 'Grass Nova Pro Scala double-wall drawers',
@@ -87,7 +87,7 @@ const PROJECTS: Project[] = [
     type: 'U-Shaped Cozy Layout',
     area: '165 sq. ft.',
     style: 'Warm Walnut & Sand Cashmere',
-    image: '/src/assets/images/luxury_kitchen_cozy_family_1783190798287.jpg',
+    image: '/images/cozy-family.jpg',
     specs: {
       material: 'Premium warm American Walnut timber & matte Cashmere laminate',
       hardware: 'Blum Tandembox antaro deep storage systems',
@@ -107,7 +107,7 @@ const PROJECTS: Project[] = [
     type: 'Open Parallel Concept',
     area: '135 sq. ft.',
     style: 'Matte Graphite & Natural Ash',
-    image: '/src/assets/images/luxury_kitchen_parallel_1783190591738.jpg',
+    image: '/images/parallel.jpg',
     specs: {
       material: 'Eco-certified high density fibreboards in graphite gray',
       hardware: 'Hettich InnoTech Atira drawer channels',
@@ -127,7 +127,7 @@ const PROJECTS: Project[] = [
     type: 'Straight Layout with Island',
     area: '140 sq. ft.',
     style: 'Ultra-Minimal Gloss White & Quartz',
-    image: '/src/assets/images/luxury_kitchen_minimal_white_1783190812144.jpg',
+    image: '/images/minimal-white.jpg',
     specs: {
       material: 'Seamless white lacquer high-gloss panels & snow quartz',
       hardware: 'Blum Servo-Drive electric touch opening',

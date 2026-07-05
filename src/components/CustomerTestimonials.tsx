@@ -19,7 +19,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Gurugram',
     rating: 5,
     badge: 'L-Shaped Modular Kitchen',
-    image: '/src/assets/images/modern_indian_couple_avatar_1783191113840.jpg',
+    image: '/images/couple-avatar.jpg',
     text: 'KitchenSpace Studio completely turned our dark, cramped kitchen into an open, warm family masterpiece. We went with their L-shaped walnut layout combined with premium Carrara marble, and the results are absolute perfection. Their design advisors took the time to understand our exact cooking habits, establishing a seamless golden-triangle workflow that has reduced meal prep stress immensely. From the automatic under-cabinet LED profile lighting to the smooth Blum drawer mechanisms, the level of European craft is visible in every single corner. They completed the technical installation within the promised timeframe, showing exemplary professionalism. We cannot recommend their bespoke design service enough to anyone seeking quality.'
   },
   {
@@ -28,7 +28,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Chandigarh',
     rating: 5,
     badge: 'Island Modular Kitchen',
-    image: '/src/assets/images/indian_woman_headshot_meera_1783191128681.jpg',
+    image: '/images/avatar-meera.jpg',
     text: 'As someone who hosts dinners frequently, having a kitchen that is both highly functional and visually breathtaking was my main goal. KitchenSpace Studio exceeded all my hopes with their scandinavian blonde oak island kitchen. The interactive cooking island with the solid integrated dining bar has turned into the favorite social hub of our home. Every drawer and corner carousel storage pull-out functions with whispering silence, and the dual concealed appliance garage keeps our counters entirely clutter-free. The entire journey from site measurement to final keys handover was perfectly transparent, and the final look is an absolute masterpiece of minimalist elegance.'
   },
   {
@@ -37,7 +37,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Delhi',
     rating: 5,
     badge: 'Parallel Galley Kitchen',
-    image: '/src/assets/images/indian_man_headshot_rajiv_1783191141679.jpg',
+    image: '/images/avatar-rajiv.jpg',
     text: 'I wanted a highly technical, bold contemporary parallel kitchen for my penthouse in Delhi, and the team at KitchenSpace delivered a magnificent charcoal satin Nero Marquina layout. Their execution of Gola profile handleless cabinetry combined with solid hand-brushed custom brass profiles is incredibly sophisticated. The Nero Marquina book-matched marble island slab is a conversation starter for everyone who visits. Beyond aesthetics, the moisture-proof E1 core boards feel exceptionally sturdy, and the motion-activated baseboard lighting makes nighttime visits extremely elegant. It is a world-class luxury space that matches the standard of top-tier international kitchen brands.'
   },
   {
@@ -46,7 +46,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Mohali',
     rating: 5,
     badge: 'U-Shaped Cozy Kitchen',
-    image: '/src/assets/images/indian_woman_headshot_priya_1783191158164.jpg',
+    image: '/images/avatar-priya.jpg',
     text: 'Our family is deeply passionate about authentic Indian cooking, which involves rich spices and heavy culinary usage. KitchenSpace Studio custom-designed a stunning, highly resilient U-Shaped warm walnut and sand cashmere kitchen that fits our daily routine beautifully. The integrated high-power chimney and specialized multi-tier spice drawers are highly ergonomic, while the magic corner carousels turned previously dead cabinet space into incredibly valuable storage. We are amazed at how they expanded our active storage capacity by nearly fifty percent while keeping the entire kitchen feeling so bright, modern, and open. The durable anti-scratch laminate has been completely painless to maintain.'
   },
   {
@@ -55,7 +55,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Jaipur',
     rating: 5,
     badge: 'Open Parallel Concept',
-    image: '/src/assets/images/indian_man_headshot_karan_1783191169757.jpg',
+    image: '/images/avatar-karan.jpg',
     text: 'The open parallel kitchen concept they implemented for our heritage Jaipur home is an absolute masterclass in architectural spacing. By pairing matte graphite cabinetry with natural ash highlights, they created an eye-catching, high-contrast transitional design that bridges old-world charm with contemporary luxury. The vertical handleless profiles look sleek and modern, while the specialized pull-out pantry towers provide incredible organization for our spices and pantry essentials. The site technicians were meticulously careful with our walls and kept the space clean throughout the entire process. The customer support team was incredibly responsive and professional.'
   },
   {
@@ -64,7 +64,7 @@ const TESTIMONIALS: Testimonial[] = [
     city: 'Noida',
     rating: 5,
     badge: 'Straight Kitchen with Island',
-    image: '/src/assets/images/indian_woman_headshot_neha_1783191182325.jpg',
+    image: '/images/avatar-neha.jpg',
     text: 'I am an extreme minimalist, so for my Noida apartment, I wanted an ultra-clean, pure white workspace. The minimalist white residence layout with the high-gloss mirror-polished acrylic cabinets and snow quartz countertops is a flawless execution of that vision. The motorized electric touch drawers operate with absolute ease, and the retractable pocket doors that conceal my active appliances are a brilliant space-saving innovation. It feels incredibly premium, spacious, and airy. The entire installation was handled with white-glove precision. Every time I walk in, it feels like stepping into a modern design museum.'
   }
 ];
